@@ -120,11 +120,11 @@ if ($setting['inlinebtnmain'] == "oninline" && !empty($keyboardRows)) {
 $keyboardPanel = json_encode([
     'inline_keyboard' => [
         [
-            ['text' => $textbotlang['textbot']['discount'], 'callback_data' => "Discount"],
-            ['text' => $textbotlang['textbot']['addBalance'], 'callback_data' => "Add_Balance"]
+            ['text' => $textbotlang['textbot']['discount'], 'callback_data' => "Discount", 'style' => 'primary'],
+            ['text' => $textbotlang['textbot']['addBalance'], 'callback_data' => "Add_Balance", 'style' => 'success']
         ],
         [
-            ['text' => $textbotlang['language']['changeButton'], 'callback_data' => "ّchange_language"],
+            ['text' => $textbotlang['language']['changeButton'], 'callback_data' => "ّchange_language", 'style' => 'primary'],
         ],
         [['text' => $textbotlang['users']['backbtn'], 'callback_data' => "backuser"]],
     ],
@@ -264,7 +264,7 @@ if ($PaySettingcard == "oncard" && intval($users['cardpayment']) == 1) {
         ];
     } else {
         $step_payment['inline_keyboard'][] = [
-            ['text' => $textbotlang['textbot']['cartToCart'], 'callback_data' => "cart_to_offline"],
+            ['text' => $textbotlang['textbot']['cartToCart'], 'callback_data' => "cart_to_offline", 'style' => 'primary'],
         ];
     }
 }
@@ -321,7 +321,7 @@ if (intval($paymentsstartelegram) == 1) {
     ];
 }
 $step_payment['inline_keyboard'][] = [
-    ['text' => $textbotlang['keyboard']['closeList'], 'callback_data' => "colselist"]
+    ['text' => $textbotlang['keyboard']['closeList'], 'callback_data' => "colselist", 'style' => 'danger']
 ];
 $step_payment = json_encode($step_payment);
 $keyboardhelpadmin = json_encode([
@@ -364,7 +364,7 @@ if ($setting['inlinebtnmain'] == "oninline") {
     $confrimrolls = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['keyboard']['acceptRules'], 'callback_data' => "acceptrule"],
+                ['text' => $textbotlang['keyboard']['acceptRules'], 'callback_data' => "acceptrule", 'style' => 'success'],
             ],
         ]
     ]);
@@ -859,14 +859,14 @@ if ($table_exists) {
 }
 $payment = json_encode([
     'inline_keyboard' => [
-        [['text' => $textbotlang['keyboard']['payAndGetService'], 'callback_data' => "confirmandgetservice"]],
-        [['text' => $textbotlang['keyboard']['registerDiscountCode'], 'callback_data' => "aptdc"]],
+        [['text' => $textbotlang['keyboard']['payAndGetService'], 'callback_data' => "confirmandgetservice", 'style' => 'success']],
+        [['text' => $textbotlang['keyboard']['registerDiscountCode'], 'callback_data' => "aptdc", 'style' => 'primary']],
         [['text' => $textbotlang['users']['backbtn'], 'callback_data' => "backuser"]]
     ]
 ]);
 $paymentom = json_encode([
     'inline_keyboard' => [
-        [['text' => $textbotlang['keyboard']['payAndGetService'], 'callback_data' => "confirmandgetservice"]],
+        [['text' => $textbotlang['keyboard']['payAndGetService'], 'callback_data' => "confirmandgetservice", 'style' => 'success']],
         [['text' => $textbotlang['users']['backbtn'], 'callback_data' => "backuser"]]
     ]
 ]);
@@ -1107,8 +1107,8 @@ if ($setting['statussupportpv'] == "onpvsupport") {
     $supportoption = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['textbot']['faq'], 'callback_data' => "fqQuestions"],
-                ['text' => $textbotlang['keyboard']['sendMessageToSupport'], 'url' => "https://t.me/{$setting['id_support']}"],
+                ['text' => $textbotlang['textbot']['faq'], 'callback_data' => "fqQuestions", 'style' => 'primary'],
+                ['text' => $textbotlang['keyboard']['sendMessageToSupport'], 'url' => "https://t.me/{$setting['id_support']}", 'style' => 'success'],
             ],
             [
                 ['text' => $textbotlang['keyboard']['backToMainMenu'], 'callback_data' => "backuser"]
@@ -1120,8 +1120,8 @@ if ($setting['statussupportpv'] == "onpvsupport") {
     $supportoption = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['textbot']['faq'], 'callback_data' => "fqQuestions"],
-                ['text' => $textbotlang['keyboard']['sendMessageToSupport'], 'callback_data' => "support"],
+                ['text' => $textbotlang['textbot']['faq'], 'callback_data' => "fqQuestions", 'style' => 'primary'],
+                ['text' => $textbotlang['keyboard']['sendMessageToSupport'], 'callback_data' => "support", 'style' => 'success'],
             ],
             [
                 ['text' => $textbotlang['keyboard']['backToMainMenu'], 'callback_data' => "backuser"]
@@ -1219,8 +1219,8 @@ if ($setting['inlinebtnmain'] == "oninline") {
     $keyboardagent = [
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['keyboard']['bulkPurchase'], 'callback_data' => "kharidanbuh"],
-                ['text' => $textbotlang['keyboard']['selectCustomName'], 'callback_data' => "selectname"]
+                ['text' => $textbotlang['keyboard']['bulkPurchase'], 'callback_data' => "kharidanbuh", 'style' => 'success'],
+                ['text' => $textbotlang['keyboard']['selectCustomName'], 'callback_data' => "selectname", 'style' => 'primary']
             ],
             [
                 ['text' => $textbotlang['users']['backbtn'], 'callback_data' => "backuser"]
@@ -1609,7 +1609,7 @@ function keyboard_config($config_split, $id_invoice, $back_active = true)
 $keyboard_buy = json_encode([
     'inline_keyboard' => [
         [
-            ['text' => $textbotlang['keyboard']['buySubscription'], 'callback_data' => 'buy'],
+            ['text' => $textbotlang['keyboard']['buySubscription'], 'callback_data' => 'buy', 'style' => 'success'],
         ],
     ]
 ]);

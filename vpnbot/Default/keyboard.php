@@ -27,27 +27,42 @@ if (!is_array($admin_idsmain)) {
 if (!in_array($from_id, $admin_ids_decoded) && !in_array($from_id, $admin_idsmain)) {
     unset($keyboarddate['text_Admin']);
 }
-$keyboard = ['keyboard' => [], 'resize_keyboard' => true];
+$keyboard_styles = [
+    'text_sell' => 'success',
+    'text_usertest' => 'success',
+    'text_Purchased_services' => 'primary',
+    'accountwallet' => 'primary',
+    'text_support' => 'danger',
+    'text_Admin' => 'danger',
+];
+$keyboard_callbacks = [
+    'text_sell' => 'buy',
+    'text_usertest' => 'usertestbtn',
+    'text_Purchased_services' => 'backorder',
+    'accountwallet' => 'account',
+    'text_support' => 'supportbtns',
+    'text_Admin' => 'admin',
+];
+$keyboard = ['inline_keyboard' => []];
 $tempArray = [];
-
-foreach ($keyboarddate as $keyboardtext) {
-    $tempArray[] = ['text' => $keyboardtext];
+foreach ($keyboarddate as $keyid => $keyboardtext) {
+    $btn = ['text' => $keyboardtext, 'callback_data' => $keyboard_callbacks[$keyid] ?? $keyid];
+    if (isset($keyboard_styles[$keyid])) $btn['style'] = $keyboard_styles[$keyid];
+    $tempArray[] = $btn;
     if (count($tempArray) == 2) {
-        $keyboard['keyboard'][] = $tempArray;
+        $keyboard['inline_keyboard'][] = $tempArray;
         $tempArray = [];
     }
 }
 if (count($tempArray) > 0) {
-    $keyboard['keyboard'][] = $tempArray;
+    $keyboard['inline_keyboard'][] = $tempArray;
 }
-$keyboard  = json_encode($keyboard);
+$keyboard = json_encode($keyboard);
 
 $backuser = json_encode([
-    'keyboard' => [
-        [['text' => "🏠 بازگشت به منوی اصلی"]]
-    ],
-    'resize_keyboard' => true,
-    'input_field_placeholder' => "برای بازگشت روی دکمه زیر کلیک کنید"
+    'inline_keyboard' => [
+        [['text' => "🏠 بازگشت به منوی اصلی", 'callback_data' => "backuser"]]
+    ]
 ]);
 
 // keyboard list panel for test 
@@ -166,13 +181,13 @@ $list_marzban_panel_user = json_encode($list_marzban_panel_users);
 
 $payment = json_encode([
     'inline_keyboard' => [
-        [['text' => "💰 پرداخت و دریافت سرویس", 'callback_data' => "confirmandgetservice"]],
+        [['text' => "💰 پرداخت و دریافت سرویس", 'callback_data' => "confirmandgetservice", 'style' => 'success']],
         [['text' => "🏠 بازگشت به منوی اصلی",  'callback_data' => "backuser"]]
     ]
 ]);
 $KeyboardBalance = json_encode([
     'inline_keyboard' => [
-        [['text' => "💸 افزایش موجودی", 'callback_data' => "AddBalance"]],
+        [['text' => "💸 افزایش موجودی", 'callback_data' => "AddBalance", 'style' => 'success']],
         [['text' => "🏠 بازگشت به منوی اصلی",  'callback_data' => "backuser"]]
     ]
 ]);

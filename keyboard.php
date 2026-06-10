@@ -54,43 +54,33 @@ if ($setting['inlinebtnmain'] == "oninline" && !empty($keyboardRows)) {
         foreach ($callback_set as $keyboard_key => $keyboard) {
             if ($keyboard['text'] == "text_sell") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "buy";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "success";
             }
             if ($keyboard['text'] == "accountwallet") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "account";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "primary";
             }
             if ($keyboard['text'] == "text_Tariff_list") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "Tariff_list";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "primary";
             }
             if ($keyboard['text'] == "text_wheel_luck") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "wheel_luck";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "primary";
             }
             if ($keyboard['text'] == "text_affiliates") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "affiliatesbtn";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "primary";
             }
             if ($keyboard['text'] == "text_extend") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "extendbtn";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "success";
             }
             if ($keyboard['text'] == "text_support") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "supportbtns";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "danger";
             }
             if ($keyboard['text'] == "text_Purchased_services") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "backorder";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "primary";
             }
             if ($keyboard['text'] == "text_help") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "helpbtns";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "primary";
             }
             if ($keyboard['text'] == "text_usertest") {
                 $trace_keyboard[$key][$keyboard_key]['callback_data'] = "usertestbtn";
-                $trace_keyboard[$key][$keyboard_key]['style'] = "success";
             }
         }
     }
@@ -559,7 +549,7 @@ while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
         continue;
     $datahelp[] = $result['category'];
     $helpcwtgory['inline_keyboard'][] = [
-        ['text' => $result['category'], 'callback_data' => "helpctgoryـ{$result['category']}"]
+        ['text' => $result['category'], 'callback_data' => "helpctgoryـ{$result['category']}", 'style' => 'primary']
     ];
 }
 if ($setting['linkappstatus'] == "1") {
@@ -579,7 +569,7 @@ $stmt->execute();
 $helpapp = ['inline_keyboard' => []];
 while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $helpapp['inline_keyboard'][] = [
-        ['text' => $result['name'], 'url' => $result['link']]
+        ['text' => $result['name'], 'url' => $result['link'], 'style' => 'success']
     ];
 }
 $helpapp['inline_keyboard'][] = [

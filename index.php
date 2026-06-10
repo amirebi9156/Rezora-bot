@@ -2355,7 +2355,7 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
     $keyboarddisorder = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "product_" . $id_invoice],
+                ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "product_" . $id_invoice, 'style' => 'primary'],
             ]
         ]
     ]);
@@ -6354,7 +6354,7 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
     $backinfoss = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "product_" . $id_invoice],
+                ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "product_" . $id_invoice, 'style' => 'primary'],
             ]
         ]
     ]);
@@ -6371,7 +6371,7 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
     $backinfoss = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "product_" . $id_invoice],
+                ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "product_" . $id_invoice, 'style' => 'primary'],
             ]
         ]
     ]);

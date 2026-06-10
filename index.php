@@ -435,7 +435,8 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . $data . "✨",
-                    'callback_data' => "product_" . $row['id_invoice']
+                    'callback_data' => "product_" . $row['id_invoice'],
+                    'style' => 'primary'
                 ],
             ];
         }
@@ -444,7 +445,8 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . "✨",
-                    'callback_data' => "product_" . $row['id_invoice']
+                    'callback_data' => "product_" . $row['id_invoice'],
+                    'style' => 'primary'
                 ],
             ];
         }
@@ -452,9 +454,10 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
     $pagination_buttons = [
         [
             'text' => $textbotlang['users']['page']['next'],
-            'callback_data' => 'next_page'
+            'callback_data' => 'next_page',
+            'style' => 'primary'
         ],
-        ['text' => $textbotlang['users']['search']['title'], 'callback_data' => 'searchservice']
+        ['text' => $textbotlang['users']['search']['title'], 'callback_data' => 'searchservice', 'style' => 'primary']
     ];
     $backuser = [
         [
@@ -497,7 +500,8 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . $data . "✨",
-                    'callback_data' => "product_" . $row['id_invoice']
+                    'callback_data' => "product_" . $row['id_invoice'],
+                    'style' => 'primary'
                 ],
             ];
         }
@@ -506,7 +510,8 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . "✨",
-                    'callback_data' => "product_" . $row['id_invoice']
+                    'callback_data' => "product_" . $row['id_invoice'],
+                    'style' => 'primary'
                 ],
             ];
         }
@@ -560,7 +565,8 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . $data . "✨",
-                    'callback_data' => "product_" . $row['id_invoice']
+                    'callback_data' => "product_" . $row['id_invoice'],
+                    'style' => 'primary'
                 ],
             ];
         }
@@ -569,7 +575,8 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . "✨",
-                    'callback_data' => "product_" . $row['id_invoice']
+                    'callback_data' => "product_" . $row['id_invoice'],
+                    'style' => 'primary'
                 ],
             ];
         }
@@ -885,7 +892,7 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
     $keyboardsetting = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['status']['backlist'], 'callback_data' => 'backorder'],
+                ['text' => $textbotlang['users']['status']['backlist'], 'callback_data' => 'backorder', 'style' => 'primary'],
             ]
         ]
     ]);
@@ -940,7 +947,7 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
         $keyboardsetting = [
             'inline_keyboard' => [
                 [
-                    ['text' => $textbotlang['users']['extend']['title'], 'callback_data' => 'extend_' . $username],
+                    ['text' => $textbotlang['users']['extend']['title'], 'callback_data' => 'extend_' . $username, 'style' => 'success'],
                     ['text' => $textbotlang['users']['extraVolume']['sellextra'], 'callback_data' => 'Extra_volume_' . $username],
                 ],
                 [
@@ -948,7 +955,7 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
                     ['text' => $textbotlang['users']['extraTime']['title'], 'callback_data' => 'Extra_time_' . $username],
                 ],
                 [
-                    ['text' => $textbotlang['users']['status']['backlist'], 'callback_data' => 'backorder'],
+                    ['text' => $textbotlang['users']['status']['backlist'], 'callback_data' => 'backorder', 'style' => 'primary'],
                 ]
             ]
         ];
@@ -1571,7 +1578,7 @@ if ($text == "/start" || $datain == "start" || $text == "start") {
     $keyboardextend = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['extend']['confirm'], 'callback_data' => "confirmserivce"],
+                ['text' => $textbotlang['users']['extend']['confirm'], 'callback_data' => "confirmserivce", 'style' => 'success'],
                 ['text' => $textbotlang['users']['extend']['discount'], 'callback_data' => "discountextend"],
             ],
             [
@@ -3042,7 +3049,7 @@ if ($user['step'] == "createusertest" || preg_match('/locationtest_(.*)/', $data
         }
         if ($setting['linkappstatus'] == "1") {
             $helpidos['inline_keyboard'][] = [
-                ['text' => $textbotlang['keyboard']['appDownloadLink'], 'callback_data' => "linkappdownlod"],
+                ['text' => $textbotlang['keyboard']['appDownloadLink'], 'callback_data' => "linkappdownlod", 'style' => 'success'],
             ];
         }
         $helpidos['inline_keyboard'][] = [
@@ -6178,7 +6185,8 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . $data . "✨",
-                    'callback_data' => "extend_" . $row['id_invoice']
+                    'callback_data' => "extend_" . $row['id_invoice'],
+                    'style' => 'success'
                 ],
             ];
         }
@@ -6187,7 +6195,8 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . "✨",
-                    'callback_data' => "extend_" . $row['id_invoice']
+                    'callback_data' => "extend_" . $row['id_invoice'],
+                    'style' => 'success'
                 ],
             ];
         }
@@ -6235,7 +6244,8 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . $data . "✨",
-                    'callback_data' => "extend_" . $row['id_invoice']
+                    'callback_data' => "extend_" . $row['id_invoice'],
+                    'style' => 'success'
                 ],
             ];
         }
@@ -6244,7 +6254,8 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . "✨",
-                    'callback_data' => "extend_" . $row['id_invoice']
+                    'callback_data' => "extend_" . $row['id_invoice'],
+                    'style' => 'success'
                 ],
             ];
         }
@@ -6293,7 +6304,8 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . $data . "✨",
-                    'callback_data' => "extend_" . $row['id_invoice']
+                    'callback_data' => "extend_" . $row['id_invoice'],
+                    'style' => 'success'
                 ],
             ];
         }
@@ -6302,7 +6314,8 @@ if (preg_match('/^sendresidcart-(.*)/', $datain, $dataget)) {
             $keyboardlists['inline_keyboard'][] = [
                 [
                     'text' => "✨" . $row['username'] . "✨",
-                    'callback_data' => "extend_" . $row['id_invoice']
+                    'callback_data' => "extend_" . $row['id_invoice'],
+                    'style' => 'success'
                 ],
             ];
         }
@@ -6464,7 +6477,7 @@ if (isset($update['message']['successful_payment'])) {
     $keyboardextend = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['extend']['confirm'], 'callback_data' => "confirmserivces-" . $codeproduct . "-" . $username],
+                ['text' => $textbotlang['users']['extend']['confirm'], 'callback_data' => "confirmserivces-" . $codeproduct . "-" . $username, 'style' => 'success'],
             ]
         ]
     ]);

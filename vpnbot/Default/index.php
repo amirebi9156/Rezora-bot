@@ -36,7 +36,7 @@ if (!empty($setting['channel'])) {
                     ['text' => "عضویت در کانال", 'url' => "https://t.me/" . $setting['channel']]
                 ],
                 [
-                    ['text' => "✅ عضو شدم", 'callback_data' => "confirmchannel"]
+                    ['text' => "✅ عضو شدم", 'callback_data' => "confirmchannel", 'style' => 'success']
                 ],
             ]
         ];
@@ -203,14 +203,16 @@ if ($text == "/start") {
         $keyboardlists['inline_keyboard'][] = [
             [
                 'text' => "✨" . $row['username'] . $data . "✨",
-                'callback_data' => "product_" . $row['id_invoice']
+                'callback_data' => "product_" . $row['id_invoice'],
+                'style' => 'primary'
             ],
         ];
     }
     $pagination_buttons = [
         [
-            'text' => "بعدی",
-            'callback_data' => 'next_page'
+            'text' => "بعدی ➡️",
+            'callback_data' => 'next_page',
+            'style' => 'primary'
         ]
     ];
     $backuser = [
@@ -251,18 +253,21 @@ if ($text == "/start") {
         $keyboardlists['inline_keyboard'][] = [
             [
                 'text' => "✨" . $row['username'] . "✨",
-                'callback_data' => "product_" . $row['id_invoice']
+                'callback_data' => "product_" . $row['id_invoice'],
+                'style' => 'primary'
             ],
         ];
     }
     $pagination_buttons = [
         [
-            'text' => "بعدی",
-            'callback_data' => 'next_page'
+            'text' => "بعدی ➡️",
+            'callback_data' => 'next_page',
+            'style' => 'primary'
         ],
         [
-            'text' => "قبلی",
-            'callback_data' => 'previous_page'
+            'text' => "⬅️ قبلی",
+            'callback_data' => 'previous_page',
+            'style' => 'primary'
         ]
     ];
     $backuser = [
@@ -1035,7 +1040,7 @@ if ($text == $text_bot_var['btn_keyboard']['buy'] && $setting['active_step_note'
         $bakinfos = json_encode([
             'inline_keyboard' => [
                 [
-                    ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "account"],
+                    ['text' => $textbotlang['users']['status']['backinfo'], 'callback_data' => "account", 'style' => 'primary'],
                 ]
             ]
         ]);
@@ -1283,8 +1288,8 @@ $textonebuy
     $Confirm_pay = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['Balance']['Confirmpaying'], 'callback_data' => "Confirm_pay_{$userdate['id_order']}"],
-                ['text' => $textbotlang['users']['Balance']['reject_pay'], 'callback_data' => "reject_pay_{$userdate['id_order']}"],
+                ['text' => $textbotlang['users']['Balance']['Confirmpaying'], 'callback_data' => "Confirm_pay_{$userdate['id_order']}", 'style' => 'success'],
+                ['text' => $textbotlang['users']['Balance']['reject_pay'], 'callback_data' => "reject_pay_{$userdate['id_order']}", 'style' => 'danger'],
             ]
         ]
     ]);
@@ -1439,7 +1444,8 @@ $textonebuy
     if (count($keyboarddateservies) != 0) {
         $tempArrayservices = [];
         foreach ($keyboarddateservies as $keyboardtextservice) {
-            $tempArrayservices[] = ['text' => $keyboardtextservice['text'], 'callback_data' => $keyboardtextservice['callback_data'] . $username];
+            $style = 'primary';
+            $tempArrayservices[] = ['text' => $keyboardtextservice['text'], 'callback_data' => $keyboardtextservice['callback_data'] . $username, 'style' => $style];
             if (count($tempArrayservices) == 2) {
                 $keyboardsetting['inline_keyboard'][] = $tempArrayservices;
                 $tempArrayservices = [];
@@ -1688,7 +1694,7 @@ $output
     $keyboardextend = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['extend']['confirm'], 'callback_data' => "confirmserivce-" . $nameloc['id_invoice']],
+                ['text' => $textbotlang['users']['extend']['confirm'], 'callback_data' => "confirmserivce-" . $nameloc['id_invoice'], 'style' => 'success'],
             ],
             [
                 ['text' => $textbotlang['users']['backbtn'], 'callback_data' => "backuser"]
@@ -1823,10 +1829,10 @@ $output
     $keyboardextendfnished = json_encode([
         'inline_keyboard' => [
             [
-                ['text' => $textbotlang['users']['status']['backlist'], 'callback_data' => "backorder"],
+                ['text' => $textbotlang['users']['status']['backlist'], 'callback_data' => "backorder", 'style' => 'primary'],
             ],
             [
-                ['text' => $textbotlang['users']['status']['backservice'], 'callback_data' => "product_" . $nameloc['id_invoice']],
+                ['text' => $textbotlang['users']['status']['backservice'], 'callback_data' => "product_" . $nameloc['id_invoice'], 'style' => 'primary'],
             ]
         ]
     ]);
